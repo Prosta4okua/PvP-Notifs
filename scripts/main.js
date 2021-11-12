@@ -206,11 +206,11 @@ const TeamAchievement={
 		print(unit.name);
 		if(!this.units){
 			this.units = Seq.with(unit);
-			eventLogInfo(this.team, "розпочав створення "+unit.localizedName+toBlockEmoji(unit));
+			eventLogInfo(this.team, "розпочала створення "+unit.localizedName+toBlockEmoji(unit));
 		}
 		if(!this.units.contains(unit)){
 			this.units.add(unit);
-			eventLogInfo(this.team, "розпочав створення "+unit.localizedName+toBlockEmoji(unit));
+			eventLogInfo(this.team, "розпочала створення "+unit.localizedName+toBlockEmoji(unit));
 		}
 	}
 	
@@ -430,7 +430,7 @@ Events.on(EventType.BlockDestroyEvent, cons(e => {
 	var tile = e.tile;
 	if(tile.build instanceof CoreBlock.CoreBuild){
 		if(tile.team()== Vars.player.team()){
-			queue.add("[red]!!Core at ["+tile.x+","+tile.y+"] was lost!!");
+			queue.add("[red]!!Ядро ["+tile.x+","+tile.y+"] було втрачено!!");
 		}else{
 			eventLogInfo(tile.team(),"втратили ядро ["+tile.x+","+tile.y+"]");
 		}

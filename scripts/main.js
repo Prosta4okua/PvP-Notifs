@@ -753,38 +753,38 @@ cons(e => {
 		
 		t.button(new TextureRegionDrawable(rangeammoicon), togglestyle, run(()=>{
 			ignoreNoAmmo=!ignoreNoAmmo;
-		})).update(b => b.setChecked(ignoreNoAmmo)).width(46).height(46).name("ammorange").tooltip("ігнорувати башти без боєприпасів");
+		})).update(b => b.setChecked(ignoreNoAmmo)).width(46).height(46).name("ammorange").tooltip("Ігнорувати башти без боєприпасів.");
 		
 		t.row();
 		t.button(Icon.units, style, run(()=>{
 			onChat("Xelo","units")
-		})).width(46).height(46).name("units").tooltip("count enemy units");
+		})).width(46).height(46).name("units").tooltip("Порахувати кількість одиниць.");
 		
 		t.button(new TextureRegionDrawable(progressicon), togglestyle, run(()=>{
 			viewprogress=!viewprogress;
-		})).update(b => b.setChecked(viewprogress)).width(46).height(46).name("progress").tooltip("показати шкалу прогресу на заводах з виробництва одиниць");
+		})).update(b => b.setChecked(viewprogress)).width(46).height(46).name("progress").tooltip("Показати шкалу прогресу на заводах з виробництва одиниць.");
 		
 		t.button(Icon.units, togglestyle, run(()=>{
 			stealUnit=!stealUnit;
-		})).update(b => b.setChecked(stealUnit)).width(46).height(46).name("stealunit").tooltip("взяти під контроль якомога швидше найближчу одиницю, коли вона вийде з фабрики");
+		})).update(b => b.setChecked(stealUnit)).width(46).height(46).name("stealunit").tooltip("Взяти під контроль якомога швидше найближчу одиницю, коли вона вийде з фабрики.");
 		
 		t.row();
 		t.button(new TextureRegionDrawable(oreicon), togglestyle, run(()=>{
 			orescan=!orescan;
-		})).update(b => b.setChecked(orescan)).width(46).height(46).name("ores").tooltip("показати покриті руди");
+		})).update(b => b.setChecked(orescan)).width(46).height(46).name("ores").tooltip("Показати покриті руди.");
 		t.button(Icon.eyeSmall, togglestyle, run(()=>{
 			Vars.enableLight=!Vars.enableLight;
-		})).update(b => b.setChecked(orescan)).width(46).height(46).name("light").tooltip("увімк./вимкн. світіння");
+		})).update(b => b.setChecked(orescan)).width(46).height(46).name("light").tooltip("Увімкнути/Вимкнути світіння.");
 		t.button(new TextureRegionDrawable(pipbuttonicon), togglestyle, run(()=>{
 			showpips=!showpips;
-		})).update(b => b.setChecked(showpips)).width(46).height(46).name("light").tooltip("показати труби");
+		})).update(b => b.setChecked(showpips)).width(46).height(46).name("light").tooltip("Показати труби.");
 		t.row();
 		t.button(Icon.refresh, style, run(()=>{
 			Call.sendChatMessage("/sync");
-		})).width(46).height(46).name("ores").tooltip("синхронізуватися з сервером");
+		})).width(46).height(46).name("ores").tooltip("Синхронізуватися з сервером.");
 		t.button(new TextureRegionDrawable(votekick), style, run(()=>{
 			Call.sendChatMessage("/vote y");
-		})).width(46).height(46).name("ores").tooltip("Проголосувати за вигнання з сервера");
+		})).width(46).height(46).name("ores").tooltip("Проголосувати за вигнання з сервера.");
 		
 		t.button(Icon.terminal, togglestyle, run(()=>{
 			if(playerAI){
@@ -793,7 +793,7 @@ cons(e => {
 				playerAI = new BuilderAI();
 				playerAI.unit(Vars.player.unit());
 			}
-		})).update(b => b.setChecked(!!playerAI)).width(46).height(46).name("ores").tooltip("become gamma Ai");
+		})).update(b => b.setChecked(!!playerAI)).width(46).height(46).name("ores").tooltip("Стати ШІ Гамми.");
 		
 		t.top().right().marginTop(180);
 		//Icon.units
@@ -808,7 +808,7 @@ cons(e => {
 			}
 			let imgbutton = t.button(Icon.paste, style, run(()=>{
 				useSchematic(Core.settings.getString(i+"-schem"));
-			})).update(b => b.setDisabled(!Core.settings.getString(i+"-schem"))).width(width).height(width).name("ores").tooltip("використати схему "+i).get();
+			})).update(b => b.setDisabled(!Core.settings.getString(i+"-schem"))).width(width).height(width).name("ores").tooltip("Використати схему "+i+".").get();
 			imgbutton.getImage().setScaling(Scaling.stretch);
 			imgbutton.getImage().setSize(width*0.8,width*0.8);
 			imgbutton.resizeImage(width*0.8);
@@ -1260,7 +1260,7 @@ const onChat = function(sender,message) {
 						f = "Team "+chatTeamColor(k)+k.name+"[white]'s items:"+f;
 						queue.add(f);
 					});
-					queue.add("[cyan]Scanning enemy core items..");
+					queue.add("[cyan]Скануємо предмети ворожих ядер...");
 				}
 			break;
 			case "glitch":
@@ -1303,7 +1303,6 @@ const onChat = function(sender,message) {
 };
 
 global.alerts.onChat = function(msg){onChat("Xelo",msg);};
-
 
 
 
